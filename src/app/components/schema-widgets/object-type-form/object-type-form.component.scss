@@ -1,0 +1,13 @@
+:host {
+  display: grid;
+  grid-template:
+    "pts pts"
+    "apt .";
+  column-gap: 0.5rem;
+}
+.properties {
+  grid-area: pts;
+}
+.additionalProperties {
+  grid-area: apt;
+}

@@ -1,0 +1,30 @@
+:host {
+  display: grid;
+  row-gap: 3rem;
+}
+
+.app-schema-to-form {
+  display: block;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: 0.1rem solid orange !important;
+  border-radius: 5px !important;
+
+  &.ng-invalid {
+    border-color: red !important;
+  }
+
+  &.ng-valid {
+    border-color: green !important;
+  }
+
+  legend {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: max-content;
+    color: grey;
+  }
+}

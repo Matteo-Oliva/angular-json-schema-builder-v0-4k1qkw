@@ -1,0 +1,29 @@
+:host {
+  display: grid;
+  grid-template:
+    'itm itm'
+    'ctn ctn'
+    'mni mxi'
+    'uqi adi';
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.items {
+  grid-area: itm;
+}
+.contains {
+  grid-area: ctn;
+}
+.min-items {
+  grid-area: mni;
+}
+.max-items {
+  grid-area: mxi;
+}
+.unique-items {
+  grid-area: uqi;
+}
+.additional-items {
+  grid-area: adi;
+}

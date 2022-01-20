@@ -1,0 +1,16 @@
+:host {
+  display: grid;
+  grid-template:
+    "typ exp"
+    "tyi tyi";
+  column-gap: 0.5rem;
+}
+.type {
+  grid-area: typ;
+}
+.expand {
+  grid-area: exp;
+}
+.type-instance {
+  grid-area: tyi;
+}

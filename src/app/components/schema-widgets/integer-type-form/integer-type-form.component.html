@@ -1,0 +1,49 @@
+<ng-container [formGroup]="formGroup" *ngIf="toggle">
+  <mat-form-field class="multipleof">
+    <input
+      matInput
+      placeholder="Multiple of"
+      formControlName="multipleOf"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="minimum">
+    <input
+      matInput
+      placeholder="Minimum (greater than or equal)"
+      formControlName="minimum"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="exclusive-minimum">
+    <input
+      matInput
+      placeholder="Minimum (strictly greater than)"
+      formControlName="exclusiveMinimum"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="maximum">
+    <input
+      matInput
+      placeholder="Maximum (less than or equal)"
+      formControlName="maximum"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="exclusive-maximum">
+    <input
+      matInput
+      placeholder="Maximum (strictly less than)"
+      formControlName="exclusiveMaximum"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <app-enum-number-input-form class="enum" formControlName="enum">
+  </app-enum-number-input-form>
+</ng-container>

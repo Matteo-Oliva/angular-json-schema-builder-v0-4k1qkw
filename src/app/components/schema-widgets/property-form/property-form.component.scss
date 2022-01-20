@@ -1,0 +1,39 @@
+.properties {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.property {
+  display: grid;
+  grid-template:
+    "ky ."
+    "vl vl";
+  column-gap: 0.5rem;
+}
+.key {
+  grid-area: ky;
+}
+.value {
+  grid-area: vl;
+}
+
+fieldset {
+  border: 0.1rem solid orange !important;
+  border-radius: 5px !important;
+
+  &.ng-invalid {
+    border-color: red !important;
+  }
+
+  &.ng-valid {
+    border-color: green !important;
+  }
+
+  legend {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: max-content;
+    color: grey;
+  }
+}

@@ -1,0 +1,155 @@
+<ng-container [formGroup]="formGroup" [ngSwitch]="type">
+  <ng-container *ngSwitchCase="JSONTypeOption.STRING">
+    <ng-container [ngSwitch]="enum">
+      <ng-container *ngSwitchCase="false">
+        <!-- string -->
+        <mat-form-field class="string">
+          <input
+            matInput
+            [placeholder]="
+              (label ? label : '') + (required ? ' *' : '')
+            "
+            formControlName="_"
+          />
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.minlength
+            "
+          >
+            Too short
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.maxlength
+            "
+          >
+            Too long
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.pattern
+            "
+          >
+            Invalid input
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.required
+            "
+          >
+            Required
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
+      <ng-container *ngSwitchCase="true">
+        <!-- string select -->
+        <mat-form-field class="string-select">
+          <mat-label>{{
+            (label ? label : '') + (required ? ' *' : '')
+          }}</mat-label>
+          <mat-select formControlName="_">
+            <mat-option
+              *ngFor="let enum of schema.enum"
+              [value]="enum"
+            >
+              {{ enum }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="JSONTypeOption.NUMBER">
+    <ng-container [ngSwitch]="enum">
+      <ng-container *ngSwitchCase="false">
+        <!-- string -->
+        <mat-form-field class="number">
+          <input
+            matInput
+            [placeholder]="
+              (label ? label : '') + (required ? ' *' : '')
+            "
+            formControlName="_"
+          />
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.min
+            "
+          >
+            Below minimum
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.max
+            "
+          >
+            Above maximum
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.multipleOf
+            "
+          >
+            Invalid input
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formGroup.controls._.errors &&
+              formGroup.controls._.errors.required
+            "
+          >
+            Required
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
+      <ng-container *ngSwitchCase="true">
+        <!-- string select -->
+        <mat-form-field>
+          <mat-select>
+            <mat-option
+              *ngFor="let enum of schema.enum"
+              [value]="enum"
+            >
+              {{ enum }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="JSONTypeOption.BOOLEAN">
+    <mat-checkbox formControlName="_">{{
+      (label ? label : '') + (required ? ' *' : '')
+    }}</mat-checkbox>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="JSONTypeOption.OBJECT">
+    <fieldset>
+      <legend>
+        {{ (label ? label : '') + (required ? ' *' : '') }}
+      </legend>
+      <ng-container *ngFor="let key of propertyKeys">
+        <ng-container *ngIf=""> </ng-container>
+
+        <app-schema-to-form
+          [label]="key"
+          [formControlName]="key"
+          [required]="requiredKeys.includes(key)"
+          [schema]="schema.properties[key]"
+        ></app-schema-to-form>
+      </ng-container>
+    </fieldset>
+  </ng-container>
+</ng-container>
+<!-- 
+{{ formGroup.value | json }}
+{{ formGroup.errors | json }} -->

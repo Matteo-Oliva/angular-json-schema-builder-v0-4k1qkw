@@ -1,0 +1,12 @@
+fieldset {
+  border: 0.05rem solid grey !important;
+  border-radius: 5px !important;
+
+  legend {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: max-content;
+    color: grey;
+  }
+}

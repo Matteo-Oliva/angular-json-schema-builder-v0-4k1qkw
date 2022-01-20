@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup">
+  <div formArrayName="{{ name }}" class="schemas">
+    <div *ngFor="let item of getArray().controls; let i = index">
+      <fieldset [formGroupName]="i" class="schema">
+        <legend>Schema Form</legend>
+
+        <app-combinator-form
+          formControlName="_"
+        ></app-combinator-form>
+
+        <div>
+          <button
+            mat-stroked-button
+            color="warn"
+            (click)="removeItem(i)"
+          >
+            Delete Schema
+          </button>
+        </div>
+      </fieldset>
+    </div>
+    <div>
+      <button
+        mat-stroked-button
+        color="primary"
+        style="margin-top:0.5rem"
+        (click)="addItem()"
+      >
+        Add Schema
+      </button>
+    </div>
+  </div>
+</div>

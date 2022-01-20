@@ -1,0 +1,82 @@
+<ng-container [formGroup]="formGroup">
+  <mat-form-field class="type">
+    <mat-label>Type</mat-label>
+    <mat-select formControlName="_type">
+      <mat-option
+        *ngFor="let typeOption of JSONTypeOption | keyvalue"
+        [value]="typeOption.value"
+      >
+        {{ typeOption.value | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div [ngSwitch]="formGroup.controls._type.value" class="expand">
+    <button
+      *ngSwitchCase="JSONTypeOption.INTEGER"
+      mat-stroked-button
+      color="accent"
+      (click)="toggle = !toggle"
+    >
+      + Check
+    </button>
+    <button
+      *ngSwitchCase="JSONTypeOption.NUMBER"
+      mat-stroked-button
+      color="accent"
+      (click)="toggle = !toggle"
+    >
+      + Check
+    </button>
+    <button
+      *ngSwitchCase="JSONTypeOption.STRING"
+      mat-stroked-button
+      color="accent"
+      (click)="toggle = !toggle"
+    >
+      + Check
+    </button>
+  </div>
+
+  <div
+    [ngSwitch]="formGroup.controls._type.value"
+    class="type-instance"
+  >
+    <app-array-type-form
+      *ngSwitchCase="JSONTypeOption.ARRAY"
+      formControlName="_"
+    ></app-array-type-form>
+    <app-boolean-type-form
+      *ngSwitchCase="JSONTypeOption.BOOLEAN"
+      formControlName="_"
+    ></app-boolean-type-form>
+    <app-integer-type-form
+      [toggle]="toggle"
+      *ngSwitchCase="JSONTypeOption.INTEGER"
+      formControlName="_"
+    ></app-integer-type-form>
+    <app-null-type-form
+      *ngSwitchCase="JSONTypeOption.NULL"
+      formControlName="_"
+    ></app-null-type-form>
+    <app-number-type-form
+      [toggle]="toggle"
+      *ngSwitchCase="JSONTypeOption.NUMBER"
+      formControlName="_"
+    ></app-number-type-form>
+    <app-object-type-form
+      *ngSwitchCase="JSONTypeOption.OBJECT"
+      formControlName="_"
+    ></app-object-type-form>
+    <app-string-type-form
+      [toggle]="toggle"
+      *ngSwitchCase="JSONTypeOption.STRING"
+      formControlName="_"
+    ></app-string-type-form>
+    <app-json-pointer-form
+      *ngSwitchCase="JSONTypeOption.REF"
+      formControlName="_"
+    >
+    </app-json-pointer-form>
+  </div>
+</ng-container>

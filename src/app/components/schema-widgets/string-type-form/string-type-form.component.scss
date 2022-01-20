@@ -1,0 +1,26 @@
+:host {
+  display: grid;
+  grid-template:
+    'mnl mxl'
+    'ptn fmt'
+    'em em';
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.min-length {
+  grid-area: mnl;
+}
+.max-length {
+  grid-area: mxl;
+}
+.pattern {
+  grid-area: ptn;
+}
+.format {
+  grid-area: fmt;
+}
+.enum {
+  grid-area: em;
+  display: grid;
+}

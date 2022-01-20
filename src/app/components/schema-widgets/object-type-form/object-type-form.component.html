@@ -1,0 +1,27 @@
+<ng-container [formGroup]="formGroup">
+  <app-property-form
+    class="properties"
+    formControlName="properties"
+  ></app-property-form>
+
+  <mat-form-field class="additionalProperties">
+    <mat-label>Allow Additional Properties</mat-label>
+    <mat-select formControlName="additionalProperties">
+      <mat-option [value]="null">Yes - default</mat-option>
+      <mat-option [value]="false"
+        >No - enforces properties</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Required (default none)</mat-label>
+    <mat-select formControlName="required" multiple>
+      <mat-option
+        *ngFor="let property of getPropertyNames()"
+        [value]="property"
+        >{{ property }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</ng-container>

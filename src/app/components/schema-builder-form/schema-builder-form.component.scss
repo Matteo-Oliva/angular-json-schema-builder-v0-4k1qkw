@@ -1,0 +1,38 @@
+:host {
+  display: grid;
+  padding: 5rem;
+  row-gap: 1rem;
+}
+form {
+  display: grid;
+  grid-template:
+    'scm .'
+    'sid .'
+    'ttl .'
+    'dsc .'
+    'cmb .'
+    'cbi cbi'
+    'sch sch';
+  column-gap: 0.5rem;
+}
+.schema {
+  grid-area: scm;
+}
+.schema-id {
+  grid-area: sid;
+}
+.combinator {
+  grid-area: cmb;
+}
+.title {
+  grid-area: ttl;
+}
+.description {
+  grid-area: dsc;
+}
+.combinator-instance {
+  grid-area: cbi;
+}
+.schema-text {
+  grid-area: sch;
+}

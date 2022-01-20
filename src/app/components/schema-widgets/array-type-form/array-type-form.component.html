@@ -1,0 +1,48 @@
+<ng-container [formGroup]="formGroup">
+  <app-combinator-form
+    class="items"
+    name="Items Combinator"
+    formControlName="items"
+  ></app-combinator-form>
+  <app-combinator-form
+    class="contains"
+    name="Contains Combinator"
+    formControlName="contains"
+  ></app-combinator-form>
+
+  <mat-form-field class="min-items">
+    <input
+      matInput
+      placeholder="Minimum Number Of Items"
+      formControlName="minItems"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="max-items">
+    <input
+      matInput
+      placeholder="Maximum Number Of Items"
+      formControlName="maxItems"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="unique-items">
+    <mat-label>Allow Duplicate Items</mat-label>
+    <mat-select formControlName="uniqueitems">
+      <mat-option [value]="null">Yes - default</mat-option>
+      <mat-option [value]="true">No - enforces uniqueness</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="additional-items">
+    <mat-label>Allow Additional Items</mat-label>
+    <mat-select formControlName="additionalItems">
+      <mat-option [value]="null">Yes - default</mat-option>
+      <mat-option [value]="false"
+        >No - enforces properties</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</ng-container>

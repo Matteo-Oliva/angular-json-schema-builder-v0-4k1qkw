@@ -1,0 +1,43 @@
+<ng-container [formGroup]="formGroup" *ngIf="toggle">
+  <mat-form-field class="min-length">
+    <input
+      matInput
+      placeholder="Minimum Length"
+      formControlName="minLength"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="max-length">
+    <input
+      matInput
+      placeholder="Maximum Length"
+      formControlName="maxLength"
+    />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="pattern">
+    <input matInput placeholder="Pattern" formControlName="pattern" />
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="format">
+    <mat-label>Format (mixed support)</mat-label>
+    <mat-select formControlName="format">
+      <mat-option [value]="null">
+        No format
+      </mat-option>
+      <mat-option
+        *ngFor="let formatOption of JSONFormatOption | keyvalue"
+        [value]="formatOption.value"
+      >
+        {{ formatOption.value }}
+      </mat-option>
+    </mat-select>
+    <mat-hint>Optional</mat-hint>
+  </mat-form-field>
+
+  <app-string-enum-input-form class="enum" formControlName="enum">
+  </app-string-enum-input-form>
+</ng-container>

@@ -1,0 +1,42 @@
+<fieldset [formGroup]="formGroup">
+  <mat-form-field class="combinator">
+    <mat-label>{{ name ? name : 'Combinator' }}</mat-label>
+    <mat-select formControlName="_type">
+      <mat-option
+        *ngFor="let combinatorType of JSONCombinatorType | keyvalue"
+        [value]="combinatorType.value"
+      >
+        {{ combinatorType.value | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div
+    [ngSwitch]="formGroup.controls._type.value"
+    class="combinator-instance"
+  >
+    <app-type-form
+      *ngSwitchCase="JSONCombinatorType.TYPE"
+      formControlName="_"
+    ></app-type-form>
+
+    <app-many-type-form
+      *ngSwitchCase="JSONCombinatorType.ALL_OF"
+      [name]="JSONCombinatorType.ALL_OF"
+      formControlName="_"
+    >
+    </app-many-type-form>
+    <app-many-type-form
+      *ngSwitchCase="JSONCombinatorType.ANY_OF"
+      [name]="JSONCombinatorType.ANY_OF"
+      formControlName="_"
+    >
+    </app-many-type-form>
+    <app-many-type-form
+      *ngSwitchCase="JSONCombinatorType.ONE_OF"
+      [name]="JSONCombinatorType.ONE_OF"
+      formControlName="_"
+    >
+    </app-many-type-form>
+  </div>
+</fieldset>

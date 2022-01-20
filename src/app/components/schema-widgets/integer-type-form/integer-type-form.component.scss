@@ -1,0 +1,29 @@
+:host {
+  display: grid;
+  grid-template:
+    "mt ."
+    "mn xmn"
+    "mx xmx"
+    "enm enm";
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.multipleof {
+  grid-area: mt;
+}
+.minimum {
+  grid-area: mn;
+}
+.exclusive-minimum {
+  grid-area: xmn;
+}
+.maximum {
+  grid-area: mx;
+}
+.exclusive-maximum {
+  grid-area: xmx;
+}
+.enum {
+  grid-area: enm;
+}
